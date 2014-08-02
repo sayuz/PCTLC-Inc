@@ -16,5 +16,10 @@
     <author href="https://build.phonegap.com" email="support@phonegap.com">
         Hardeep Shoker 
     </author>
+    <plugin name="Geolocation" value="org.apache.cordova.GeoBroker" />
+    <plugin name="Geolocation" value="CDVLocation" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 
 </widget>

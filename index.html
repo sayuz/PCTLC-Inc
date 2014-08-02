@@ -2,8 +2,7 @@
 <html>
   <head>
     <title>Device Properties Example</title>
-
-    <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
 
     // Wait for Cordova to load
@@ -16,7 +15,7 @@
     //
     function onDeviceReady() {
         // Throw an error if no update is received every 30 seconds
-        var options = { timeout: 30000 };
+        var options = { timeout: 1000 };
         watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
     }
 

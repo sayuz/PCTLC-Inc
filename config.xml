@@ -16,8 +16,6 @@
     <author href="https://build.phonegap.com" email="support@phonegap.com">
         Hardeep Shoker 
     </author>
-        <!-- current version of PhoneGap -->
-    <preference name="phonegap-version" />
 
     <!--
         Enable individual API permissions here.

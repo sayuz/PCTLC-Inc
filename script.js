@@ -44,16 +44,18 @@ function findDistance(lat2, lon2, time2) {
     spd2 = round((mi*1600));///(time*1000)); // meters/sec
     spd2 = spd2 ? spd2 : 0;
     $("#speed").val(spd2);
-    arr.push(t2 + '|' + n2 + '|' + time2 + '|' + spd2);
-    //if (spd2 <= 1.3 && spd2 >0) {
-      //  arr.push(t2 + '|' + n2 + '|' + time2 + '|' + spd2);
-   // } else {
-     //   arr = ["39.768480|-86.158001|" + time2 + "|0"];
-    //}
-    $("#log").val(arr[arr.length - 1]);
-    //if (arr.length >= 100) {
-     //   alert('Alert!');
-    //}
+    //arr.push(t2 + '|' + n2 + '|' + time2 + '|' + spd2);
+    if (spd2 <= 3.2) {
+    	arr.push(t2 + '|' + n2 + '|' + time2 + '|' + spd2);
+   } else {
+     arr = [t2 + '|' + n2 + '|' + time2 + '|' + spd2];
+    }
+    //$("#log").val(arr[arr.length - 1]);
+	$("#geolocation").text(arr.length);
+    if (arr.length >= 100) {
+        alert('You are Walking! '+ arr.length);
+		arr.splice(0, arr.length - 50);
+    }
 }
 
 

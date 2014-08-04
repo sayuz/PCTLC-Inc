@@ -2,9 +2,29 @@
 <html>
   <head>
     <title>Device Properties Example</title>
-        <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" charset="utf-8">
-
+  </head>
+  <body>
+  <input type="text" name="lat" id="lat"><br />
+    <input type="text" name="long" id="long"><br />
+      <input type="text" name="time" id="time"><br />
+  <button id="start" name="start">Start</button><br />
+      <input type="text" name="speed" id="speed"><br />
+      <input name="log" type="text" id="log" size="40">
+      <br />
+  <p id="geolocation">Watching geolocation...</p>
+    <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" charset="utf-8">
+	$("#start").on( "click", function() {
+	  function timeout() {
+		setTimeout(function () {
+			findDistance($("#lat").val(),$("#long").val(),$("#time").val());
+					timeout();
+				}, 1000);
+		}
+		timeout();
+	});
     // Wait for Cordova to load
     //
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -14,18 +34,22 @@
     // Cordova is ready
     //
     function onDeviceReady() {
+		navigator.geolocation.getCurrentPosition(initiate, onError);
         // Throw an error if no update is received every 30 seconds
-        var options = { timeout: 30000 };
+        var options = { timeout: 10000 };
         watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
     }
+	
+	function initiate(position){
+		arr.push(position.coords.latitude + '|' + position.coords.longitude + '|' + position.timestamp + '|' + 0);
+	}
 
     // onSuccess Geolocation
     //
     function onSuccess(position) {
-        var element = document.getElementById('geolocation');
-        element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
-                            'Longitude: ' + position.coords.longitude     + '<br />' +
-                            '<hr />'      + element.innerHTML;
+		$("#lat").val(position.coords.latitude);
+		$("#long").val(position.coords.longitude);
+		$("#time").val(position.timestamp);
     }
 
     // onError Callback receives a PositionError object
@@ -36,8 +60,5 @@
     }
 
     </script>
-  </head>
-  <body>
-    <p id="geolocation">Watching geolocation...</p>
-  </body>
+</body>
 </html>

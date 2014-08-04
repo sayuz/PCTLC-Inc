@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Device Properties Example</title>
+    <title>HotSeat</title>
+<link href="style.css" rel="stylesheet">
   </head>
   <body><center>
-  <input type="text" name="lat" id="lat"><br />
-    <input type="text" name="long" id="long"><br />
-      <input type="text" name="time" id="time"><br />
+  <input type="hidden" name="lat" id="lat"><br />
+    <input type="hidden" name="long" id="long"><br />
+      <input type="hidden" name="time" id="time"><br />
   <button id="start" name="start" style="padding:9px 25px;">Start</button><br />
    <button id="stop" name="stop">Stop</button> 
   
   <p align="center">
       Speed: <input name="speed" type="text" id="speed" size="3" style="font-weight:bold; padding:5px;">
   meters/sec<br />
-      <input name="log" type="text" id="log" size="40"></p>
+      <input name="log" type="hidden" id="log" size="40"></p>
       
   <p id="geolocation">Watching geolocation...</p></center>
     <script type="text/javascript" src="cordova.js"></script>

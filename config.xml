@@ -2,16 +2,11 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.phonegap.example123"
-        versionCode = "10" 
         version     = "1.0.0" >
-
-    <!-- versionCode is optional and Android only -->
-
+	
     <name>HotSeat</name>
 
-    <description>
-        An example for phonegap App.
-    </description>
+    <description>An example for phonegap App.</description>
 
     <author href="https://build.phonegap.com" email="support@phonegap.com">
         Hardeep Shoker 
@@ -21,13 +16,17 @@
         Enable individual API permissions here.
         The "device" permission is required for the 'deviceready' event.
     -->
-	<preference name="permissions"                value="none"/>
-	   
+	<preference name="permissions" value="none"/>
+	<preference name="phonegap-version" />
+	
 	<gap:platform name="ios" />
 	<gap:platform name="android" />
+	
     <gap:plugin name="org.apache.cordova.geolocation" />
+    <gap:plugin name="org.apache.cordova.device" />
+	
     <gap:plugin name="com.phonegap.plugins.pushplugin" />
-    <gap:plugin name="org.apache.cordova.device" version="0.2.8" />
-	 <access origin="*"/>
+	
+	<access origin="*"/>
 
 </widget>

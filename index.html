@@ -36,6 +36,7 @@
         // Throw an error if no update is received every 30 seconds
         var options = { timeout: 10000,enableHighAccuracy: true };
         watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+        alert(device.platform);
     }
 	
 	function initiate(position){

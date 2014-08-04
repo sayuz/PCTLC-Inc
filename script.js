@@ -50,7 +50,7 @@ function findDistance(lat2, lon2, time2) {
    } else {
      arr = [t2 + '|' + n2 + '|' + time2 + '|' + spd2];
     }
-    //$("#log").val(arr[arr.length - 1]);
+    $("#log").val(arr[arr.length - 1]);
 	$("#geolocation").text(arr.length);
     if (arr.length >= 100) {
         alert('You are Walking! '+ arr.length);
@@ -61,7 +61,7 @@ function findDistance(lat2, lon2, time2) {
 
 // convert degrees to radians
 function deg2rad(deg) {
-    rad = deg * Math.PI / 180; // radians = degrees * pi/180 
+    rad = deg * Math.PI / 180; // radians = degrees * pi/180
     return rad;
 }
 

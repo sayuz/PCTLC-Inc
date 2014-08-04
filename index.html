@@ -40,7 +40,7 @@
         
 	try 
 	{ 
-        	pushNotification = window.plugins.pushNotification;
+        	var pushNotification = window.plugins.pushNotification;
 	//	$("#app-status-ul").append('<li>registering ' +  + '</li>'); 
 		alert(device.platform);
              	if (device.platform == 'android' || device.platform == 'Android' || device.platform == 'amazon-fireos' ) {

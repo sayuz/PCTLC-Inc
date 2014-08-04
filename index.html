@@ -5,11 +5,11 @@
 <link href="style.css" rel="stylesheet">
   </head>
   <body><center>
-  <input type="hidden" name="lat" id="lat"><br />
-    <input type="hidden" name="long" id="long"><br />
-      <input type="hidden" name="time" id="time"><br />
+  <input type="hidden" name="lat" id="lat" class="flds"><br />
+    <input type="hidden" name="long" id="long" class="flds"><br />
+      <input type="hidden" name="time" id="time" class="flds"><br />
   <button id="start" name="start" style="padding:9px 25px;">Start</button><br />
-   <button id="stop" name="stop">Stop</button> 
+   <button id="stop" name="stop" style="padding:9px 25px;">Stop</button> 
   
   <p align="center">
       Speed: <input name="speed" type="text" id="speed" size="3" style="font-weight:bold; padding:5px;">
@@ -26,6 +26,7 @@
     document.addEventListener("deviceready", onDeviceReady, false);
 
     var watchID = null;
+	var timeoutHandle;
 
     // Cordova is ready
     //
@@ -56,20 +57,29 @@
     }
 
 	$("#start").on( "click", function() {
+		if (watchID == null) {
+			watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 10000,enableHighAccuracy: true });
+			//alert('start');
+		}
+		timeout();
+	});
+	
+	$("#stop").on( "click", function() {
+		if (watchID != null) {
+            navigator.geolocation.clearWatch(watchID);
+			window.clearTimeout(timeoutHandle);
+            watchID = null;
+			 arr = [$("#lat").val() + '|' + $("#long").val() + '|' + $("#time").val() + '|' + 0];
+			alert('Stopped');
+			$("#geolocation").text('');
+        }
+	});
 	  function timeout() {
-		setTimeout(function () {
+		timeoutHandle=setTimeout(function () {
 			findDistance($("#lat").val(),$("#long").val(),$("#time").val());
 			timeout();
 			}, 1000);
 		}
-		timeout();
-	});
-	$("#stop").on( "click", function() {
-		if (watchID != null) {
-            navigator.geolocation.clearWatch(watchID);
-            watchID = null;
-        }
-	});
     </script>
 </body>
 </html>

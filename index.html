@@ -7,7 +7,8 @@
   <input type="text" name="lat" id="lat"><br />
     <input type="text" name="long" id="long"><br />
       <input type="text" name="time" id="time"><br />
-  <button id="start" name="start" style="padding:9px 25px;">Start</button>
+  <button id="start" name="start" style="padding:9px 25px;">Start</button><br />
+   <button id="stop" name="stop">Stop</button> 
   
   <p align="center">
       Speed: <input name="speed" type="text" id="speed" size="3" style="font-weight:bold; padding:5px;">
@@ -19,15 +20,6 @@
   <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
   <script type="text/javascript" charset="utf-8">
-	$("#start").on( "click", function() {
-	  function timeout() {
-		setTimeout(function () {
-			findDistance($("#lat").val(),$("#long").val(),$("#time").val());
-					timeout();
-				}, 1000);
-		}
-		timeout();
-	});
     // Wait for Cordova to load
     //
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -62,6 +54,21 @@
               'message: ' + error.message + '\n');
     }
 
+	$("#start").on( "click", function() {
+	  function timeout() {
+		setTimeout(function () {
+			findDistance($("#lat").val(),$("#long").val(),$("#time").val());
+			timeout();
+			}, 1000);
+		}
+		timeout();
+	});
+	$("#stop").on( "click", function() {
+		if (watchID != null) {
+            navigator.geolocation.clearWatch(watchID);
+            watchID = null;
+        }
+	});
     </script>
 </body>
 </html>

@@ -61,7 +61,7 @@ function findDistance(lat2, lon2, time2) {
 
 // convert degrees to radians
 function deg2rad(deg) {
-    rad = deg * Math.PI / 180; // radians = degrees * pi/180
+    rad = deg * Math.PI / 180; // radians = degrees * pi/180 
     return rad;
 }
 

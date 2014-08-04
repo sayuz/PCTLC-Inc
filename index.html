@@ -41,9 +41,9 @@
 	try 
 	{ 
         	pushNotification = window.plugins.pushNotification;
-		$("#app-status-ul").append('<li>registering ' + device.platform + '</li>'); 
-             	if (device.platform == 'android' || device.platform == 'Android' ||
-                            device.platform == 'amazon-fireos' ) {
+	//	$("#app-status-ul").append('<li>registering ' +  + '</li>'); 
+		alert(device.platform);
+             	if (device.platform == 'android' || device.platform == 'Android' || device.platform == 'amazon-fireos' ) {
 			pushNotification.register(successHandler, errorHandler, {"senderID":"168819430962","ecb":"onNotificationGCM"});		// required!
 		} else {
                    	pushNotification.register(tokenHandler, errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});	// required!

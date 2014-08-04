@@ -3,15 +3,18 @@
   <head>
     <title>Device Properties Example</title>
   </head>
-  <body>
+  <body><center>
   <input type="text" name="lat" id="lat"><br />
     <input type="text" name="long" id="long"><br />
       <input type="text" name="time" id="time"><br />
-  <button id="start" name="start">Start</button><br />
-      <input type="text" name="speed" id="speed"><br />
-      <input name="log" type="text" id="log" size="40">
-      <br />
-  <p id="geolocation">Watching geolocation...</p>
+  <button id="start" name="start" style="padding:9px 25px;">Start</button>
+  
+  <p align="center">
+      Speed: <input name="speed" type="text" id="speed" size="3" style="font-weight:bold; padding:5px;">
+  meters/sec<br />
+      <input name="log" type="text" id="log" size="40"></p>
+      
+  <p id="geolocation">Watching geolocation...</p></center>
     <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
   <script type="text/javascript" src="script.js"></script>

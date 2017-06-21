@@ -10,10 +10,7 @@ HotSeat
 HotSeat
 HotSeat
 HotSeat
+sayuz shaklya
 HotSeat
 HotSeat
-HotSeat
-HotSeat
-HotSeat
-HotSeat
-HotSeat
+sayuz shakya

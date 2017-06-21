@@ -10,7 +10,7 @@ HotSeat
 HotSeat
 HotSeat
 HotSeat
-sayuz shaklya
+John Smith
 HotSeat
 HotSeat
 sayuz shakya
